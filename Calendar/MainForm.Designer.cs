@@ -60,9 +60,9 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addBtn,
             this.deleteBtn});
-            this.toolStrip.Location = new System.Drawing.Point(832, 18);
+            this.toolStrip.Location = new System.Drawing.Point(863, 18);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(80, 25);
+            this.toolStrip.Size = new System.Drawing.Size(49, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -84,6 +84,7 @@
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(23, 22);
             this.deleteBtn.Text = "Удалить событие";
+            this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // dgvEvents
             // 
@@ -116,7 +117,7 @@
             dataGridViewCellStyle1.Format = "t";
             dataGridViewCellStyle1.NullValue = null;
             this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Время";
             this.dateTimeEventDataGridViewTextBoxColumn.Name = "dateTimeEventDataGridViewTextBoxColumn";
             this.dateTimeEventDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateTimeEventDataGridViewTextBoxColumn.Width = 60;
@@ -125,9 +126,10 @@
             // 
             this.textDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
-            this.textDataGridViewTextBoxColumn.HeaderText = "Текст";
+            this.textDataGridViewTextBoxColumn.HeaderText = "Заметка";
             this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
             this.textDataGridViewTextBoxColumn.ReadOnly = true;
+            this.textDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // notifyDataGridViewCheckBoxColumn
             // 

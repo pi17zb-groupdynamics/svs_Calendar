@@ -113,6 +113,33 @@ namespace Calendar {
 
         }// AddBtn_Click
 
+        /// <summary>
+        /// При удалении заметки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteBtn_Click(object sender, EventArgs e) {
+
+            // Проверяем выделена ли строка
+            if (dgvEvents.SelectedRows.Count != 1)
+                return;
+
+            // Получаем текущий объект
+            Event selEvent = dgvEvents.SelectedRows?[0].DataBoundItem as Event;
+
+            // Запрос подтверждение удаления заметки
+            var result = MessageBox.Show("Подтвердите удаление", "Удаление заметки", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Если выбрали да удаляем заметку
+            if (result == DialogResult.Yes) {
+                _events.Remove(selEvent);
+                // Обновляем данные
+                bindingSource.DataSource = SelectDayEvents();
+            }// if
+
+        }// DeleteBtn_Click
+
+
 
     }// class MainForm
 }
