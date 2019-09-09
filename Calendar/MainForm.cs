@@ -139,7 +139,27 @@ namespace Calendar {
 
         }// DeleteBtn_Click
 
+        /// <summary>
+        /// При двойном щелчке мыши на запись вызываем форму редактирования
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DgvEvents_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            
+            // Проверяем выделена ли строка
+            if (dgvEvents.SelectedRows.Count != 1)
+                return;
 
+            // Получаем текущий объект
+            Event selEvent = dgvEvents.SelectedRows?[0].DataBoundItem as Event;
 
+            // Вызываем форму редактирования этого объекта
+            DialogResult res = new EventForm(selEvent).ShowDialog();
+
+            // Если подтвердили изменение обновляем данные формы, т.к. могли изменить дату события
+            if(res == DialogResult.OK)
+                bindingSource.DataSource = SelectDayEvents();
+
+        }// DgvEvents_CellDoubleClick
     }// class MainForm
 }

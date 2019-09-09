@@ -108,6 +108,7 @@
             this.dgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvents.Size = new System.Drawing.Size(696, 283);
             this.dgvEvents.TabIndex = 3;
+            this.dgvEvents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEvents_CellDoubleClick);
             // 
             // dateTimeEventDataGridViewTextBoxColumn
             // 
