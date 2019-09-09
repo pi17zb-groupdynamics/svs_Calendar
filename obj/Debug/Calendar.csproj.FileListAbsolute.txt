@@ -1,0 +1,21 @@
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.exe.config
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.exe
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.pdb
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.csprojResolveAssemblyReference.cache
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.Form1.resources
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.Properties.Resources.resources
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.csproj.GenerateResource.Cache
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.exe
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.pdb
+C:\Users\qwerty\Documents\Visual Studio 2015\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.FormObject.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.csprojAssemblyReference.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.Form1.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.FormObject.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.Properties.Resources.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.csproj.GenerateResource.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.exe
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Debug\Calendar.pdb
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.exe.config
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.exe
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Debug\Calendar.pdb
