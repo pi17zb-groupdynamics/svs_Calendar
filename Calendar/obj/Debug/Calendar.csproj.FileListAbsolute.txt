@@ -1,0 +1,10 @@
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\bin\Debug\Calendar.exe.config
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\bin\Debug\Calendar.exe
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\bin\Debug\Calendar.pdb
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.csprojAssemblyReference.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.MainForm.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.Properties.Resources.resources
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.csproj.GenerateResource.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.exe
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.pdb
