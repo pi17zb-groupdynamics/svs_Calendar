@@ -31,6 +31,8 @@ namespace Calendar {
 
             InitializeComponent();
 
+            //timeToEvent.Items.AddRange();
+
             // Записываем текущий объект
             _oldEvent = e;
 
@@ -38,6 +40,8 @@ namespace Calendar {
             _event = e.Clone() as Event;
 
             LoadFromObject();
+
+
 
         }// EventForm
 
@@ -94,6 +98,8 @@ namespace Calendar {
             _event.DateTimeEvent = dateTimeEvent.Value;
         }// DateTimeEvent_ValueChanged
 
+        private void EventForm_Load(object sender, EventArgs e) {
 
+        }
     }// class EventForm
 }

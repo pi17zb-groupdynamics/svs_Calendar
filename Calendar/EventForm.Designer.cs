@@ -23,12 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventForm));
             this.dateTimeEvent = new System.Windows.Forms.DateTimePicker();
             this.text = new System.Windows.Forms.TextBox();
             this.notify = new System.Windows.Forms.CheckBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.timeToEvent = new System.Windows.Forms.ComboBox();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimeEvent
@@ -87,6 +91,18 @@
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // timeToEvent
+            // 
+            this.timeToEvent.FormattingEnabled = true;
+            this.timeToEvent.Location = new System.Drawing.Point(163, 10);
+            this.timeToEvent.Name = "timeToEvent";
+            this.timeToEvent.Size = new System.Drawing.Size(121, 21);
+            this.timeToEvent.TabIndex = 5;
+            // 
+            // eventBindingSource
+            // 
+            this.eventBindingSource.DataSource = typeof(Calendar.Event);
+            // 
             // EventForm
             // 
             this.AcceptButton = this.btnOk;
@@ -94,6 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(503, 220);
+            this.Controls.Add(this.timeToEvent);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.notify);
@@ -104,6 +121,8 @@
             this.MaximizeBox = false;
             this.Name = "EventForm";
             this.Text = "Редактирование заметки";
+            this.Load += new System.EventHandler(this.EventForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +135,7 @@
         private System.Windows.Forms.CheckBox notify;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox timeToEvent;
+        private System.Windows.Forms.BindingSource eventBindingSource;
     }
 }

@@ -20,3 +20,14 @@ C:\Users\QWERTY\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.csproj
 C:\Users\QWERTY\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
 C:\Users\QWERTY\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.exe
 C:\Users\QWERTY\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.pdb
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\bin\Debug\Calendar.exe.config
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\bin\Debug\Calendar.exe
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\bin\Debug\Calendar.pdb
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.csprojAssemblyReference.cache
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.EventForm.resources
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.MainForm.resources
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.Properties.Resources.resources
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.csproj.GenerateResource.cache
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.exe
+C:\Users\QWERTY\Documents\GitHub\svs_CalendarSereban\Calendar\obj\Debug\Calendar.pdb
