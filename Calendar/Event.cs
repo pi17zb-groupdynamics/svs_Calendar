@@ -9,12 +9,14 @@ namespace Calendar {
     /// <summary>
     /// Информация о заметке
     /// </summary>
-    public class Event {
+    public class Event : ICloneable {
+
+        // ПОЛЯ //////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Дата и время заметки
         /// </summary>
-        public DateTime DateTimeEvent { get; set; } = DateTime.Now;
+        public DateTime DateTimeEvent { get; set; }
 
         /// <summary>
         /// Текст заметки
@@ -30,6 +32,40 @@ namespace Calendar {
         /// Определяет прочитано ли уведомление
         /// </summary>
         public bool IsReaded { get; set; } = false;
+
+
+        // МЕТОДЫ //////////////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Конструктор объекта
+        /// </summary>
+        /// <param name="d"></param>
+        public Event(DateTime d) {
+            DateTimeEvent = d;
+        }// Конструктор
+
+
+        /// <summary>
+        /// Возвращает новый объект созданный на основе текущего
+        /// </summary>
+        /// <returns></returns>
+        public object Clone() {
+            return new Event(new DateTime(DateTimeEvent.Ticks)) {
+                Text = Text,
+                Notify = Notify,
+                IsReaded = IsReaded
+            };
+        }// Clone
+
+        /// <summary>
+        /// Копирует данные из другого объекта
+        /// </summary>
+        public void CloneFrom(Event ev) {
+            DateTimeEvent = ev.DateTimeEvent;
+            Text = ev.Text;
+            Notify = ev.Notify;
+            IsReaded = ev.IsReaded;
+        }// CloneFrom
 
         /// <summary>
         /// Возврат строки с временем и текстом заметки

@@ -31,11 +31,11 @@
             this.addBtn = new System.Windows.Forms.ToolStripButton();
             this.deleteBtn = new System.Windows.Forms.ToolStripButton();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimeEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isReadedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -60,9 +60,9 @@
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addBtn,
             this.deleteBtn});
-            this.toolStrip.Location = new System.Drawing.Point(863, 18);
+            this.toolStrip.Location = new System.Drawing.Point(832, 18);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(49, 25);
+            this.toolStrip.Size = new System.Drawing.Size(80, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -74,6 +74,7 @@
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(23, 22);
             this.addBtn.Text = "Добавить событие";
+            this.addBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // deleteBtn
             // 
@@ -106,10 +107,6 @@
             this.dgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvents.Size = new System.Drawing.Size(696, 283);
             this.dgvEvents.TabIndex = 3;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Calendar.Event);
             // 
             // dateTimeEventDataGridViewTextBoxColumn
             // 
@@ -147,6 +144,10 @@
             this.isReadedDataGridViewCheckBoxColumn.Name = "isReadedDataGridViewCheckBoxColumn";
             this.isReadedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isReadedDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Calendar.Event);
             // 
             // MainForm
             // 

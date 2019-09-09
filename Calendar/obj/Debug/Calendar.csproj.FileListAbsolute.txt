@@ -8,3 +8,4 @@ C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.exe
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.pdb
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\Calendar\obj\Debug\Calendar.EventForm.resources

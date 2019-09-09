@@ -28,6 +28,7 @@ namespace Calendar {
             InitializeComponent();
 
             BuildEvents();
+
             bindingSource.DataSource = SelectDayEvents();
 
         }// Конструктор
@@ -55,28 +56,24 @@ namespace Calendar {
         private void BuildEvents() {
 
             // Добавляем заметки в список
-            _events.Add(new Event {
+            _events.Add(new Event(DateTime.Now) {
                 Text = "Заметка 1"
             });
 
-            _events.Add(new Event {
-                DateTimeEvent = DateTime.Now.AddMinutes(1),
+            _events.Add(new Event(DateTime.Now.AddMinutes(1)) {
                 Text = "Заметка 2"
             });
 
-            _events.Add(new Event {
-                DateTimeEvent = DateTime.Now.AddMinutes(2),
+            _events.Add(new Event(DateTime.Now.AddMinutes(2)) {
                 Text = "Заметка 3"
             });
 
-            _events.Add(new Event {
-                DateTimeEvent = DateTime.Now.AddDays(-1),
+            _events.Add(new Event(DateTime.Now.AddDays(-1)) {
                 Text = "Заметка на вчера",
                 IsReaded = true
             });
 
-            _events.Add(new Event {
-                DateTimeEvent = DateTime.Now.AddDays(1),
+            _events.Add(new Event(DateTime.Now.AddDays(1)) {
                 Text = "Заметка на завтра"
             });
 
@@ -95,6 +92,26 @@ namespace Calendar {
             bindingSource.DataSource = SelectDayEvents();
         }// Calendar_DateChanged
 
+        /// <summary>
+        /// При добавлении Заметки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddBtn_Click(object sender, EventArgs e) {
+
+            // Создаем новый объект
+            Event ev = new Event(calendar.SelectionStart);
+
+            // Вызываем форму редактирования этого объекта
+            DialogResult res = new EventForm(ev).ShowDialog();
+
+            // Если вернули ОК, то добавляем объект в коллекцию
+            if (res == DialogResult.OK) {
+                _events.Add(ev);
+                bindingSource.DataSource = SelectDayEvents();
+            }// if
+
+        }// AddBtn_Click
 
 
     }// class MainForm
