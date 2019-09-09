@@ -25,15 +25,15 @@ namespace Calendar
             this.ev = ev;
 
             //если объект не новый а редактируем существующий
-            if (this.ev.id != 0)
+            if (this.ev.Id != 0)
             {
-                ID.Text = this.ev.id.ToString();    //отображаем тек. индекс
+                ID.Text = this.ev.Id.ToString();    //отображаем тек. индекс
                 CancelButton.Visible = false;       //скрываем кнопку Cancel
             }
 
-            setDate.Value = this.ev.dateTime;       //заполнить поле Дата
-            notify.Checked = this.ev.notify;        //заполнить поле Уведомлять
-            text.Text = this.ev.text;               //заполнить поле Текст
+            setDate.Value = this.ev.DateTimeEvent;       //заполнить поле Дата
+            notify.Checked = this.ev.Notify;        //заполнить поле Уведомлять
+            text.Text = this.ev.Text;               //заполнить поле Текст
         }
 
         private void FormObject_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Calendar
         {
             try
             {
-                if (this.ev.text == "") throw new Exception("Поле Текст не может быть пустым.");
+                if (this.ev.Text == "") throw new Exception("Поле Текст не может быть пустым.");
                 Close();
             }
             catch(Exception ex)
@@ -64,19 +64,23 @@ namespace Calendar
         //событие изменения поля Уведомлять
         private void notify_CheckedChanged(object sender, EventArgs e)
         {
-            this.ev.notify = notify.Checked;
+            this.ev.Notify = notify.Checked;
         }
 
         //событие изменения поля Дата
         private void setDate_Leave(object sender, EventArgs e)
         {
-            this.ev.dateTime = setDate.Value;
+            this.ev.DateTimeEvent = setDate.Value;
         }
 
         //событие изменения поля Текс
         private void text_TextChanged(object sender, EventArgs e)
         {
-            this.ev.text = text.Text;
+            this.ev.Text = text.Text;
+        }
+
+        private void SetDate_ValueChanged(object sender, EventArgs e) {
+            ev.IsReaded = false;
         }
     }
 }

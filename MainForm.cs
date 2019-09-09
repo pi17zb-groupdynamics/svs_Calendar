@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Calendar
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public AppEvents myApp;
 
-        public Form1()
+        public MainForm()
         {
             myApp = new AppEvents();
             myApp.ReadFromFile();
@@ -26,13 +26,21 @@ namespace Calendar
 
         }
 
-        //событие изменения даты в календаре
+        /// <summary>
+        /// Событие изменения даты в календаре
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             ListBoxUpdate(e.Start, e.End);
         }
 
-        //обновить выборку событий по текущей дате
+        /// <summary>
+        /// Обновить выборку событий по текущей дате
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void ListBoxUpdate(DateTime start, DateTime end)
         {
             //создаем коллекцию для выбора напоминаний
@@ -40,7 +48,7 @@ namespace Calendar
             
             //выбираем те которые соответствуют вбранной дате
             myApp.ForEach(it => {
-                if (it.dateTime >= start && it.dateTime <= end)
+                if (it.DateTimeEvent >= start && it.DateTimeEvent <= end)
                     selectList.Add(it);
             });
 
@@ -74,7 +82,7 @@ namespace Calendar
             DialogResult result = f.ShowDialog();   //вызываем форму
             if (result == DialogResult.OK)          //если нажали Ок
             {
-                tmp.id = myApp.id++;                //присваиваем новый id
+                tmp.Id = myApp.Id++;                //присваиваем новый id
                 myApp.AddEvent(tmp);                //добавляем в коллекцию
             }
 
@@ -87,12 +95,12 @@ namespace Calendar
         {
             //найти объект напоминание по индексу
             Event tmp = myApp.Find(it => {
-                if (it.id == (int)listBox1.SelectedValue) return true;
+                if (it.Id == (int)listBox1.SelectedValue) return true;
                 return false;
             });
 
             //удаляем элемент по ключу
-            myApp.RemoveEvent(tmp.dateTime);
+            myApp.RemoveEvent(tmp.DateTimeEvent);
             
             //обновляем список напоминаний
             ListBoxUpdate(monthCalendar1.SelectionStart, monthCalendar1.SelectionEnd);
@@ -103,7 +111,7 @@ namespace Calendar
         {
             //найти объект напоминание по индексу
             Event tmp = myApp.Find(it => {
-                if (it.id == (int)listBox1.SelectedValue) return true;
+                if (it.Id == (int)listBox1.SelectedValue) return true;
                 return false;
             });
 
@@ -114,6 +122,18 @@ namespace Calendar
             //обновляем список напоминаний
             ListBoxUpdate(monthCalendar1.SelectionStart, monthCalendar1.SelectionEnd);
         }
+        
+        /// <summary>
+        /// Событие которое запускает таймер
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimerEvent_Tick(object sender, EventArgs e) {
+            // Вызываем метод который уведомляет пользователя
+            myApp.NotifyUser();
 
-    }
+        }// TimerEvent_Tick
+
+
+    }// class MainForm
 }

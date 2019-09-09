@@ -2,10 +2,10 @@ C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Release\Calenda
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Release\Calendar.exe
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\bin\Release\Calendar.pdb
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.csprojAssemblyReference.cache
-C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.Form1.resources
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.FormObject.resources
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.Properties.Resources.resources
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.csproj.GenerateResource.cache
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.csproj.CoreCompileInputs.cache
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.exe
 C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.pdb
+C:\Users\QWERTY\OneDrive\Projects\DPI\GroupDynamics\Calendar\obj\Release\Calendar.MainForm.resources

@@ -72,6 +72,7 @@
             this.setDate.Name = "setDate";
             this.setDate.Size = new System.Drawing.Size(151, 22);
             this.setDate.TabIndex = 0;
+            this.setDate.ValueChanged += new System.EventHandler(this.SetDate_ValueChanged);
             this.setDate.Leave += new System.EventHandler(this.setDate_Leave);
             // 
             // CancelButton

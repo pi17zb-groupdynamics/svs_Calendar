@@ -1,6 +1,6 @@
 ﻿namespace Calendar
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.addEvent = new System.Windows.Forms.Button();
             this.deleteEvent = new System.Windows.Forms.Button();
+            this.timerEvent = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -81,7 +83,13 @@
             this.deleteEvent.UseVisualStyleBackColor = false;
             this.deleteEvent.Click += new System.EventHandler(this.deleteEvent_Click);
             // 
-            // Form1
+            // timerEvent
+            // 
+            this.timerEvent.Enabled = true;
+            this.timerEvent.Interval = 1000;
+            this.timerEvent.Tick += new System.EventHandler(this.TimerEvent_Tick);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,7 +98,7 @@
             this.Controls.Add(this.addEvent);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.monthCalendar1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Calendar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
@@ -103,6 +111,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button addEvent;
         private System.Windows.Forms.Button deleteEvent;
+        private System.Windows.Forms.Timer timerEvent;
     }
 }
 

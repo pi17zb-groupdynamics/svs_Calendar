@@ -10,7 +10,7 @@ namespace Calendar
     {
         //уникальный идентификатор
         private int _id;                        
-        public int id
+        public int Id
         {
             get { return _id; }
             set
@@ -21,35 +21,35 @@ namespace Calendar
         }
 
         //дата и время заметки
-        private DateTime _dateTime;             
-        public DateTime dateTime
-        {
-            get { return _dateTime; }
-            set { _dateTime = value; }
-        }
+        public DateTime DateTimeEvent { get; set; } = DateTime.Now;
 
         //текст заметки
         private string _text;                   
-        public string text
+        public string Text
         {
             get { return _text; }
             set { _text = value; }
         }
 
         //уведомлять пользователя
-        private bool _notify;                   
-        public bool notify { get { return _notify; } set { _notify = value; } }
+        public bool Notify { get; set; } = true;
 
+        /// <summary>
+        /// Определяет прочитано ли уведомление
+        /// </summary>
+        public bool IsReaded { get; set; } = false;
+
+        // Конструктор
         public Event()
         {
             _id = 0;
-            _dateTime = DateTime.Now;
             _text = "";
-            _notify = true;
-        }
+        }// Event
 
-        //возврат строки с временем и текстом заметки для отображения в ListBox
-        public string timeAndText { get { return $"{_dateTime.ToShortTimeString()} - {_text}"; } }
+        /// <summary>
+        /// Возврат строки с временем и текстом заметки для отображения в ListBox
+        /// </summary>
+        public string timeAndText { get { return $"{DateTimeEvent.ToShortTimeString()} - {_text}"; } }
 
         //запись в файл
         public void WriteToFile(System.IO.FileStream fstream)
@@ -59,7 +59,7 @@ namespace Calendar
             fstream.Write(array, 0, array.Length);
 
             //записываем время и дату
-            array = BitConverter.GetBytes(_dateTime.Ticks);
+            array = BitConverter.GetBytes(DateTimeEvent.Ticks);
             fstream.Write(array, 0, array.Length);
 
             //записываем длину поля _text
@@ -80,9 +80,9 @@ namespace Calendar
             _id = BitConverter.ToInt32(array, 0);
 
             //читаем время и дату из файла
-            array = new byte[System.Runtime.InteropServices.Marshal.SizeOf(_dateTime.Ticks)];
+            array = new byte[System.Runtime.InteropServices.Marshal.SizeOf(DateTimeEvent.Ticks)];
             fstream.Read(array, 0, array.Length);
-            _dateTime = DateTime.FromBinary(BitConverter.ToInt64(array, 0));
+            DateTimeEvent = DateTime.FromBinary(BitConverter.ToInt64(array, 0));
 
             //читаем длину поля _text
             array = new byte[System.Runtime.InteropServices.Marshal.SizeOf<int>()];
@@ -95,5 +95,7 @@ namespace Calendar
             _text = System.Text.Encoding.Default.GetString(array);
 
         }
-    }
+
+
+    }// class Event
 }
