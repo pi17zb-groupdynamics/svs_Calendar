@@ -34,7 +34,9 @@ namespace Calendar {
         public MainForm() {
             InitializeComponent();
 
-            BuildEvents();
+            // Если есть файл то загружаем данные из него
+            if (File.Exists(_path))
+                Deserialize();
 
             // Обновляем данные
             bindingSource.DataSource = SelectDayEvents();
@@ -96,6 +98,15 @@ namespace Calendar {
                 xs.Serialize(fs, _events);
         }// Serialize
 
+        /// <summary>
+        /// Десериализуем коллекцию из файла
+        /// </summary>
+        private void Deserialize() {
+            _events.Clear();
+            XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
+            using (FileStream fs = File.OpenRead(_path))
+                _events = (List<Event>)xs.Deserialize(fs);
+        }// Deserialize
 
         // СОБЫТИЯ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
