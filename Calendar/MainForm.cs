@@ -203,6 +203,7 @@ namespace Calendar {
             
             foreach (var it in res.Where(it => it.NotifyTime <= dateTimeNow)) {
                 it.IsReaded = true;
+                it.SendToMail();
                 MessageBox.Show(it.Text, "Уведомление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 // Обновляем данные

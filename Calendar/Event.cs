@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Xml.Serialization;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
 
 namespace Calendar {
 
@@ -156,6 +159,21 @@ namespace Calendar {
         public override string ToString() {
             return $"{DateTimeEvent.ToShortTimeString()} - {Text}";
         }// ToString
+
+        /// <summary>
+        /// Отправка уведомлени на почту
+        /// </summary>
+        public async void SendToMail() {
+            MailAddress from = new MailAddress("svs.kalendar@gmail.com", "Календарь");
+            MailAddress to = new MailAddress("postavka8888@gmail.com");
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = $"Уведомление от {this.DateTimeEvent.ToString()}";
+            m.Body = this.Text;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("svs.kalendar@gmail.com", "svs987654321");
+            smtp.EnableSsl = true;
+            await smtp.SendMailAsync(m);
+        }// SendToMail
 
     }// class Event
 }
