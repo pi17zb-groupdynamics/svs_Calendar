@@ -36,17 +36,30 @@ namespace Calendar {
         /// <summary>
         /// Список доступных значений уведомления за ... мин
         /// </summary>
-        public static List<string> NotifyTimeList { get; set; }
-            = new List<string>() {
-                "одновременно",
-                "за 5 мин.",
-                "за 10 мин.",
-                "за 15 мин.",
-                "за 1 час",
-                "за 1 день"
+        public static Dictionary<string, int> NotifyTimeList { get; set; }
+            = new Dictionary<string, int>() {
+                { "одновременно", 0 },
+                { "за 5 мин.", 5 },
+                { "за 10 мин.", 10 },
+                { "за 15 мин.", 15 },
+                { "за 1 час", 60 },
+                { "за 1 день", 1440 }
             };
 
-        private int _notifyTime { get; set; } = 0;
+        /// <summary>
+        /// Значение в минутах за сколько времени оповещать пользователя
+        /// </summary>
+        private int _notifyTime = 0;
+        public string NotifyTime {
+            get {
+                string result = "";
+                result = NotifyTimeList.Where(it => it.Value == _notifyTime).Select(it => it.Key)?.First();
+                if (result == "")
+                    throw new Exception("Знаечние недопустимо");
+                return result;
+            }// get
+            set { }
+        }// NotifyTime
 
 
         // МЕТОДЫ //////////////////////////////////////////////////////////////////////////////

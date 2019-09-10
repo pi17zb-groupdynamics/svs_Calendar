@@ -31,7 +31,6 @@ namespace Calendar {
 
             InitializeComponent();
 
-            timeToEvent.Items.AddRange(Event.NotifyTimeList.ToArray());
 
             // Записываем текущий объект
             _oldEvent = e;
@@ -49,6 +48,7 @@ namespace Calendar {
         /// Загружает все данные из объекта
         /// </summary>
         private void LoadFromObject() {
+            timeToEvent.Items.AddRange(Event.NotifyTimeList.Select(it => it.Key).ToArray());
             notify.Checked = _event.Notify;
             dateTimeEvent.Value = _event.DateTimeEvent;
             text.Text = _event.Text;
