@@ -31,12 +31,16 @@
             this.addBtn = new System.Windows.Forms.ToolStripButton();
             this.deleteBtn = new System.Windows.Forms.ToolStripButton();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
+            this.imListSmall = new System.Windows.Forms.ImageList(this.components);
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.timerEvents = new System.Windows.Forms.Timer(this.components);
+            this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.dateTimeEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isReadedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.timerEvents = new System.Windows.Forms.Timer(this.components);
+            this.notifyTimeStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notifyTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -96,10 +100,13 @@
             this.dgvEvents.AutoGenerateColumns = false;
             this.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Image,
             this.dateTimeEventDataGridViewTextBoxColumn,
             this.textDataGridViewTextBoxColumn,
             this.notifyDataGridViewCheckBoxColumn,
-            this.isReadedDataGridViewCheckBoxColumn});
+            this.isReadedDataGridViewCheckBoxColumn,
+            this.notifyTimeStringDataGridViewTextBoxColumn,
+            this.notifyTimeDataGridViewTextBoxColumn});
             this.dgvEvents.DataSource = this.bindingSource;
             this.dgvEvents.Location = new System.Drawing.Point(216, 46);
             this.dgvEvents.MultiSelect = false;
@@ -111,12 +118,41 @@
             this.dgvEvents.TabIndex = 3;
             this.dgvEvents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEvents_CellDoubleClick);
             // 
+            // imListSmall
+            // 
+            this.imListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imListSmall.ImageStream")));
+            this.imListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            this.imListSmall.Images.SetKeyName(0, "Green tag.ico");
+            this.imListSmall.Images.SetKeyName(1, "Black tag.ico");
+            this.imListSmall.Images.SetKeyName(2, "Red tag.ico");
+            this.imListSmall.Images.SetKeyName(3, "Blue tag.ico");
+            this.imListSmall.Images.SetKeyName(4, "Yellow tag.ico");
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Calendar.Event);
+            // 
+            // timerEvents
+            // 
+            this.timerEvents.Enabled = true;
+            this.timerEvents.Interval = 5000;
+            this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
+            // 
+            // Image
+            // 
+            this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Image.DataPropertyName = "Image";
+            this.Image.HeaderText = "";
+            this.Image.Name = "Image";
+            this.Image.ReadOnly = true;
+            this.Image.Width = 20;
+            // 
             // dateTimeEventDataGridViewTextBoxColumn
             // 
             this.dateTimeEventDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dateTimeEventDataGridViewTextBoxColumn.DataPropertyName = "DateTimeEvent";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.Format = "T";
             dataGridViewCellStyle1.NullValue = null;
             this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Время";
@@ -128,10 +164,9 @@
             // 
             this.textDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.textDataGridViewTextBoxColumn.DataPropertyName = "Text";
-            this.textDataGridViewTextBoxColumn.HeaderText = "Заметка";
+            this.textDataGridViewTextBoxColumn.HeaderText = "Text";
             this.textDataGridViewTextBoxColumn.Name = "textDataGridViewTextBoxColumn";
             this.textDataGridViewTextBoxColumn.ReadOnly = true;
-            this.textDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // notifyDataGridViewCheckBoxColumn
             // 
@@ -149,15 +184,21 @@
             this.isReadedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isReadedDataGridViewCheckBoxColumn.Visible = false;
             // 
-            // bindingSource
+            // notifyTimeStringDataGridViewTextBoxColumn
             // 
-            this.bindingSource.DataSource = typeof(Calendar.Event);
+            this.notifyTimeStringDataGridViewTextBoxColumn.DataPropertyName = "NotifyTimeString";
+            this.notifyTimeStringDataGridViewTextBoxColumn.HeaderText = "NotifyTimeString";
+            this.notifyTimeStringDataGridViewTextBoxColumn.Name = "notifyTimeStringDataGridViewTextBoxColumn";
+            this.notifyTimeStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notifyTimeStringDataGridViewTextBoxColumn.Visible = false;
             // 
-            // timerEvents
+            // notifyTimeDataGridViewTextBoxColumn
             // 
-            this.timerEvents.Enabled = true;
-            this.timerEvents.Interval = 5000;
-            this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
+            this.notifyTimeDataGridViewTextBoxColumn.DataPropertyName = "NotifyTime";
+            this.notifyTimeDataGridViewTextBoxColumn.HeaderText = "NotifyTime";
+            this.notifyTimeDataGridViewTextBoxColumn.Name = "notifyTimeDataGridViewTextBoxColumn";
+            this.notifyTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notifyTimeDataGridViewTextBoxColumn.Visible = false;
             // 
             // MainForm
             // 
@@ -189,11 +230,15 @@
         private System.Windows.Forms.ToolStripButton deleteBtn;
         private System.Windows.Forms.DataGridView dgvEvents;
         private System.Windows.Forms.BindingSource bindingSource;
+        private System.Windows.Forms.Timer timerEvents;
+        private System.Windows.Forms.ImageList imListSmall;
+        private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeEventDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn notifyDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isReadedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.Timer timerEvents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notifyTimeStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notifyTimeDataGridViewTextBoxColumn;
     }
 }
 

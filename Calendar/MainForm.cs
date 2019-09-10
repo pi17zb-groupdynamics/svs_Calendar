@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calendar {
@@ -29,6 +25,7 @@ namespace Calendar {
 
             BuildEvents();
 
+            // Обновляем данные
             bindingSource.DataSource = SelectDayEvents();
 
         }// Конструктор
@@ -56,7 +53,7 @@ namespace Calendar {
         private void BuildEvents() {
 
             // Добавляем заметки в список
-            _events.Add(new Event(DateTime.Now) {
+            _events.Add(new Event(DateTime.Now.AddSeconds(10)) {
                 Text = "Заметка 1"
             });
 
@@ -173,10 +170,14 @@ namespace Calendar {
 
             DateTime min = res.Max(it => it.NotifyTime);
             Event minEvent = res.Where(it => it.NotifyTime == min).First();
-
-            foreach(var it in res.Where(it => it.NotifyTime <= dateTimeNow)) {
+            
+            foreach (var it in res.Where(it => it.NotifyTime <= dateTimeNow)) {
                 it.IsReaded = true;
                 MessageBox.Show(it.Text, "Уведомление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                // Обновляем данные
+                bindingSource.DataSource = SelectDayEvents();
+
             }// foreach
 
         }// TimerEvents_Tick
