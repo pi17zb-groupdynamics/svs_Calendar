@@ -81,9 +81,10 @@ namespace Calendar {
         /// <returns></returns>
         public object Clone() {
             return new Event(new DateTime(DateTimeEvent.Ticks)) {
-                Text = Text,
-                Notify = Notify,
-                IsReaded = IsReaded
+                Text        = this.Text,
+                Notify      = this.Notify,
+                IsReaded    = this.IsReaded,
+                NotifyTime  = this.NotifyTime
             };
         }// Clone
 
@@ -95,6 +96,7 @@ namespace Calendar {
             Text = ev.Text;
             Notify = ev.Notify;
             IsReaded = ev.IsReaded;
+            NotifyTime = ev.NotifyTime;
         }// CloneFrom
 
         /// <summary>

@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.addBtn = new System.Windows.Forms.ToolStripButton();
@@ -36,6 +36,7 @@
             this.notifyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isReadedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.timerEvents = new System.Windows.Forms.Timer(this.components);
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -114,10 +115,10 @@
             // 
             this.dateTimeEventDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dateTimeEventDataGridViewTextBoxColumn.DataPropertyName = "DateTimeEvent";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Format = "t";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.Format = "t";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Время";
             this.dateTimeEventDataGridViewTextBoxColumn.Name = "dateTimeEventDataGridViewTextBoxColumn";
             this.dateTimeEventDataGridViewTextBoxColumn.ReadOnly = true;
@@ -151,6 +152,11 @@
             // bindingSource
             // 
             this.bindingSource.DataSource = typeof(Calendar.Event);
+            // 
+            // timerEvents
+            // 
+            this.timerEvents.Enabled = true;
+            this.timerEvents.Interval = 1000;
             // 
             // MainForm
             // 
@@ -186,6 +192,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn notifyDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isReadedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Timer timerEvents;
     }
 }
 

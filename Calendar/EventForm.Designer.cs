@@ -98,6 +98,7 @@
             this.timeToEvent.Name = "timeToEvent";
             this.timeToEvent.Size = new System.Drawing.Size(121, 21);
             this.timeToEvent.TabIndex = 5;
+            this.timeToEvent.SelectedIndexChanged += new System.EventHandler(this.TimeToEvent_SelectedIndexChanged);
             // 
             // eventBindingSource
             // 

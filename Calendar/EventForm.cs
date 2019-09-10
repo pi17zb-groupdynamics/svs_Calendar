@@ -50,7 +50,7 @@ namespace Calendar {
         private void LoadFromObject() {
 
             timeToEvent.Items.AddRange(Event.NotifyTimeList.Select(it => it.Key).ToArray());
-            //timeToEvent.DataBindings = Event.NotifyTimeList.Keys;
+            timeToEvent.Text = _event.NotifyTime;
             
             notify.Checked = _event.Notify;
             dateTimeEvent.Value = _event.DateTimeEvent;
@@ -100,6 +100,16 @@ namespace Calendar {
         private void DateTimeEvent_ValueChanged(object sender, EventArgs e) {
             _event.DateTimeEvent = dateTimeEvent.Value;
         }// DateTimeEvent_ValueChanged
+
+        /// <summary>
+        /// При изенении оповестить за ... мин. до
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimeToEvent_SelectedIndexChanged(object sender, EventArgs e) {
+            _event.NotifyTime = timeToEvent.Text;
+        }// TimeToEvent_SelectedIndexChanged
+
 
     }// class EventForm
 }
