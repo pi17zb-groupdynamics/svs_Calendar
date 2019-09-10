@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Xml.Serialization;
 
 namespace Calendar {
 
@@ -40,6 +41,7 @@ namespace Calendar {
             set => _isReaded = value;
         }// IsReaded
 
+        [XmlIgnore]
         /// <summary>
         /// Список доступных значений уведомления за ... мин
         /// </summary>
@@ -53,6 +55,7 @@ namespace Calendar {
                 { "за 1 день", 1440 }
             };
 
+        [XmlIgnore]
         public static ImageList imgList;
 
         /// <summary>
@@ -107,6 +110,13 @@ namespace Calendar {
             imgList.Images.Add(Image.FromFile(@"../../Resources/YellowTag.png"));
 
         }// Статический конструктор
+
+        /// <summary>
+        /// Конструктор без параметров нужен для сериализации
+        /// </summary>
+        public Event() {
+
+        }// Конструктор по умолчаию
 
         /// <summary>
         /// Конструктор объекта

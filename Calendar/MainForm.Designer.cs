@@ -31,9 +31,6 @@
             this.addBtn = new System.Windows.Forms.ToolStripButton();
             this.deleteBtn = new System.Windows.Forms.ToolStripButton();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
-            this.imListSmall = new System.Windows.Forms.ImageList(this.components);
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.timerEvents = new System.Windows.Forms.Timer(this.components);
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.dateTimeEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.isReadedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.notifyTimeStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.imListSmall = new System.Windows.Forms.ImageList(this.components);
+            this.timerEvents = new System.Windows.Forms.Timer(this.components);
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -118,26 +118,6 @@
             this.dgvEvents.TabIndex = 3;
             this.dgvEvents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEvents_CellDoubleClick);
             // 
-            // imListSmall
-            // 
-            this.imListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imListSmall.ImageStream")));
-            this.imListSmall.TransparentColor = System.Drawing.Color.Transparent;
-            this.imListSmall.Images.SetKeyName(0, "Green tag.ico");
-            this.imListSmall.Images.SetKeyName(1, "Black tag.ico");
-            this.imListSmall.Images.SetKeyName(2, "Red tag.ico");
-            this.imListSmall.Images.SetKeyName(3, "Blue tag.ico");
-            this.imListSmall.Images.SetKeyName(4, "Yellow tag.ico");
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Calendar.Event);
-            // 
-            // timerEvents
-            // 
-            this.timerEvents.Enabled = true;
-            this.timerEvents.Interval = 5000;
-            this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
-            // 
             // Image
             // 
             this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -200,6 +180,26 @@
             this.notifyTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.notifyTimeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Calendar.Event);
+            // 
+            // imListSmall
+            // 
+            this.imListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imListSmall.ImageStream")));
+            this.imListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            this.imListSmall.Images.SetKeyName(0, "Green tag.ico");
+            this.imListSmall.Images.SetKeyName(1, "Black tag.ico");
+            this.imListSmall.Images.SetKeyName(2, "Red tag.ico");
+            this.imListSmall.Images.SetKeyName(3, "Blue tag.ico");
+            this.imListSmall.Images.SetKeyName(4, "Yellow tag.ico");
+            // 
+            // timerEvents
+            // 
+            this.timerEvents.Enabled = true;
+            this.timerEvents.Interval = 5000;
+            this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +213,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Управление заметками";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).EndInit();

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Calendar {
     public partial class MainForm : Form {
@@ -10,12 +12,21 @@ namespace Calendar {
         /// <summary>
         /// Список событий
         /// </summary>
-        List<Event> _events = new List<Event>();
+        private List<Event> _events = new List<Event>();
+
+        /// <summary>
+        /// Имя файла для записи
+        /// </summary>
+        private string _path = @"data.xml";
 
         /// <summary>
         /// Текущая выбранная дата в календаре
         /// </summary>
-        DateTime CurentDate { get => calendar.SelectionStart; }
+        private DateTime CurentDate { get => calendar.SelectionStart; }
+
+
+
+        // МЕТОДЫ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Конструктор главной формы
@@ -76,6 +87,14 @@ namespace Calendar {
 
         }// BuildEvents
 
+        /// <summary>
+        /// Сериализует коллекцию в файл
+        /// </summary>
+        private void Serialize() {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
+            using (FileStream fs = File.Create(_path))
+                xs.Serialize(fs, _events);
+        }// Serialize
 
 
         // СОБЫТИЯ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,6 +200,16 @@ namespace Calendar {
             }// foreach
 
         }// TimerEvents_Tick
+
+        /// <summary>
+        /// Перед закрытием формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+            // Записываем данные в файл перед закрытием
+            Serialize();
+        }// MainForm_FormClosing
 
 
     }// class MainForm
