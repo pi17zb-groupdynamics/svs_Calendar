@@ -33,6 +33,21 @@ namespace Calendar {
         /// </summary>
         public bool IsReaded { get; set; } = false;
 
+        /// <summary>
+        /// Список доступных значений уведомления за ... мин
+        /// </summary>
+        public static List<string> NotifyTimeList { get; set; }
+            = new List<string>() {
+                "одновременно",
+                "за 5 мин.",
+                "за 10 мин.",
+                "за 15 мин.",
+                "за 1 час",
+                "за 1 день"
+            };
+
+        private int _notifyTime { get; set; } = 0;
+
 
         // МЕТОДЫ //////////////////////////////////////////////////////////////////////////////
 

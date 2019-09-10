@@ -31,7 +31,7 @@ namespace Calendar {
 
             InitializeComponent();
 
-            //timeToEvent.Items.AddRange();
+            timeToEvent.Items.AddRange(Event.NotifyTimeList.ToArray());
 
             // Записываем текущий объект
             _oldEvent = e;
