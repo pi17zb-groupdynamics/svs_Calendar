@@ -121,7 +121,6 @@
             this.MaximizeBox = false;
             this.Name = "EventForm";
             this.Text = "Редактирование заметки";
-            this.Load += new System.EventHandler(this.EventForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

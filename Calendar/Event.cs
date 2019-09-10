@@ -50,15 +50,17 @@ namespace Calendar {
         /// Значение в минутах за сколько времени оповещать пользователя
         /// </summary>
         private int _notifyTime = 0;
+
+        /// <summary>
+        /// Уведомлять за ... (5, 10 мин) до
+        /// </summary>
         public string NotifyTime {
-            get {
-                string result = "";
-                result = NotifyTimeList.Where(it => it.Value == _notifyTime).Select(it => it.Key)?.First();
-                if (result == "")
-                    throw new Exception("Знаечние недопустимо");
-                return result;
-            }// get
-            set { }
+            get => NotifyTimeList.Where(it => it.Value == _notifyTime).First().Key;
+            set {
+                // Проверка и присваивание значеня свойству
+                if (!NotifyTimeList.TryGetValue(value, out _notifyTime))
+                    throw new Exception($"Присваивается недопустимая величина {value}");
+            }// set
         }// NotifyTime
 
 

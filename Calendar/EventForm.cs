@@ -48,7 +48,10 @@ namespace Calendar {
         /// Загружает все данные из объекта
         /// </summary>
         private void LoadFromObject() {
+
             timeToEvent.Items.AddRange(Event.NotifyTimeList.Select(it => it.Key).ToArray());
+            //timeToEvent.DataBindings = Event.NotifyTimeList.Keys;
+            
             notify.Checked = _event.Notify;
             dateTimeEvent.Value = _event.DateTimeEvent;
             text.Text = _event.Text;
@@ -98,8 +101,5 @@ namespace Calendar {
             _event.DateTimeEvent = dateTimeEvent.Value;
         }// DateTimeEvent_ValueChanged
 
-        private void EventForm_Load(object sender, EventArgs e) {
-
-        }
     }// class EventForm
 }
