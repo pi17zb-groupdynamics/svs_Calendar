@@ -50,7 +50,7 @@ namespace Calendar {
         private void LoadFromObject() {
 
             timeToEvent.Items.AddRange(Event.NotifyTimeList.Select(it => it.Key).ToArray());
-            timeToEvent.Text = _event.NotifyTime;
+            timeToEvent.Text = _event.NotifyTimeString;
             
             notify.Checked = _event.Notify;
             dateTimeEvent.Value = _event.DateTimeEvent;
@@ -107,7 +107,7 @@ namespace Calendar {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TimeToEvent_SelectedIndexChanged(object sender, EventArgs e) {
-            _event.NotifyTime = timeToEvent.Text;
+            _event.NotifyTimeString = timeToEvent.Text;
         }// TimeToEvent_SelectedIndexChanged
 
 

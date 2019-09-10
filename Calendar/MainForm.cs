@@ -161,5 +161,26 @@ namespace Calendar {
                 bindingSource.DataSource = SelectDayEvents();
 
         }// DgvEvents_CellDoubleClick
+
+        /// <summary>
+        /// Проверяет существуют ли оповещения и уведомляет пользователя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimerEvents_Tick(object sender, EventArgs e) {
+            DateTime dateTimeNow = DateTime.Now;
+            var res = _events.Where(it => it.Notify && !it.IsReaded);
+
+            DateTime min = res.Max(it => it.NotifyTime);
+            Event minEvent = res.Where(it => it.NotifyTime == min).First();
+
+            foreach(var it in res.Where(it => it.NotifyTime <= dateTimeNow)) {
+                it.IsReaded = true;
+                MessageBox.Show(it.Text, "Уведомление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }// foreach
+
+        }// TimerEvents_Tick
+
+
     }// class MainForm
 }

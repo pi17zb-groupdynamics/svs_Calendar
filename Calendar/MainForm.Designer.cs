@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.addBtn = new System.Windows.Forms.ToolStripButton();
@@ -115,10 +115,10 @@
             // 
             this.dateTimeEventDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dateTimeEventDataGridViewTextBoxColumn.DataPropertyName = "DateTimeEvent";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.Format = "t";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Время";
             this.dateTimeEventDataGridViewTextBoxColumn.Name = "dateTimeEventDataGridViewTextBoxColumn";
             this.dateTimeEventDataGridViewTextBoxColumn.ReadOnly = true;
@@ -156,7 +156,8 @@
             // timerEvents
             // 
             this.timerEvents.Enabled = true;
-            this.timerEvents.Interval = 1000;
+            this.timerEvents.Interval = 5000;
+            this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
             // 
             // MainForm
             // 

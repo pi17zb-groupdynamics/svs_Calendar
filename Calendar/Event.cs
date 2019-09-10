@@ -54,7 +54,7 @@ namespace Calendar {
         /// <summary>
         /// Уведомлять за ... (5, 10 мин) до
         /// </summary>
-        public string NotifyTime {
+        public string NotifyTimeString {
             get => NotifyTimeList.Where(it => it.Value == _notifyTime).First().Key;
             set {
                 // Проверка и присваивание значеня свойству
@@ -63,6 +63,10 @@ namespace Calendar {
             }// set
         }// NotifyTime
 
+        /// <summary>
+        /// Дата время уведомления пользователя
+        /// </summary>
+        public DateTime NotifyTime => DateTimeEvent.AddMinutes(-_notifyTime);
 
         // МЕТОДЫ //////////////////////////////////////////////////////////////////////////////
 
@@ -74,7 +78,6 @@ namespace Calendar {
             DateTimeEvent = d;
         }// Конструктор
 
-
         /// <summary>
         /// Возвращает новый объект созданный на основе текущего
         /// </summary>
@@ -84,7 +87,7 @@ namespace Calendar {
                 Text        = this.Text,
                 Notify      = this.Notify,
                 IsReaded    = this.IsReaded,
-                NotifyTime  = this.NotifyTime
+                NotifyTimeString  = this.NotifyTimeString
             };
         }// Clone
 
@@ -96,7 +99,7 @@ namespace Calendar {
             Text = ev.Text;
             Notify = ev.Notify;
             IsReaded = ev.IsReaded;
-            NotifyTime = ev.NotifyTime;
+            NotifyTimeString = ev.NotifyTimeString;
         }// CloneFrom
 
         /// <summary>
