@@ -269,6 +269,13 @@ namespace Calendar {
             new SettingsForm(_s).ShowDialog();
         }// SettingsBtn_Click
 
-
+        /// <summary>
+        /// При нажатии кнопки Информация о приложении
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void InfoBtn_Click(object sender, EventArgs e) {
+            new InfoForm().ShowDialog();
+        }// InfoBtn_Click
     }// class MainForm
 }

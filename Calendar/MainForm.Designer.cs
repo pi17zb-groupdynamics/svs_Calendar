@@ -25,16 +25,18 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.addBtn = new System.Windows.Forms.ToolStripButton();
             this.deleteBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.settingsBtn = new System.Windows.Forms.ToolStripButton();
             this.dgvEvents = new System.Windows.Forms.DataGridView();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.imListSmall = new System.Windows.Forms.ImageList(this.components);
             this.timerEvents = new System.Windows.Forms.Timer(this.components);
-            this.settingsBtn = new System.Windows.Forms.ToolStripButton();
+            this.infoBtn = new System.Windows.Forms.ToolStripButton();
             this.dateTimeEventDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -42,7 +44,6 @@
             this.notifyTimeStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -68,10 +69,11 @@
             this.addBtn,
             this.deleteBtn,
             this.toolStripSeparator1,
-            this.settingsBtn});
-            this.toolStrip.Location = new System.Drawing.Point(834, 18);
+            this.settingsBtn,
+            this.infoBtn});
+            this.toolStrip.Location = new System.Drawing.Point(780, 18);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(78, 25);
+            this.toolStrip.Size = new System.Drawing.Size(132, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -94,6 +96,21 @@
             this.deleteBtn.Size = new System.Drawing.Size(23, 22);
             this.deleteBtn.Text = "Удалить событие";
             this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
+            this.settingsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(23, 22);
+            this.settingsBtn.Text = "Настройки";
+            this.settingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
             // dgvEvents
             // 
@@ -147,24 +164,24 @@
             this.timerEvents.Interval = 5000;
             this.timerEvents.Tick += new System.EventHandler(this.TimerEvents_Tick);
             // 
-            // settingsBtn
+            // infoBtn
             // 
-            this.settingsBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
-            this.settingsBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(23, 22);
-            this.settingsBtn.Text = "Настройки";
-            this.settingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
+            this.infoBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.infoBtn.Image = ((System.Drawing.Image)(resources.GetObject("infoBtn.Image")));
+            this.infoBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.infoBtn.Name = "infoBtn";
+            this.infoBtn.Size = new System.Drawing.Size(23, 22);
+            this.infoBtn.Text = "О приложении";
+            this.infoBtn.Click += new System.EventHandler(this.InfoBtn_Click);
             // 
             // dateTimeEventDataGridViewTextBoxColumn
             // 
             this.dateTimeEventDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dateTimeEventDataGridViewTextBoxColumn.DataPropertyName = "DateTimeEvent";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Format = "T";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.Format = "T";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateTimeEventDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateTimeEventDataGridViewTextBoxColumn.HeaderText = "Время";
             this.dateTimeEventDataGridViewTextBoxColumn.Name = "dateTimeEventDataGridViewTextBoxColumn";
             this.dateTimeEventDataGridViewTextBoxColumn.ReadOnly = true;
@@ -214,11 +231,6 @@
             // 
             this.bindingSource.DataSource = typeof(Calendar.Event);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +273,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn notifyTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton settingsBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton infoBtn;
     }
 }
 

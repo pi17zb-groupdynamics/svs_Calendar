@@ -54,3 +54,4 @@ C:\Users\Митрофанов\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\C
 C:\Users\Митрофанов\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.pdb
 C:\Users\Митрофанов\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.SettingsForm.resources
 C:\Users\Митрофанов\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.csprojAssemblyReference.cache
+C:\Users\Митрофанов\Documents\GitHub\svs_Calendar\Calendar\obj\Debug\Calendar.InfoForm.resources
