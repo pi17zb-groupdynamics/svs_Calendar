@@ -10,6 +10,11 @@ namespace Calendar {
     public partial class MainForm : Form {
 
         /// <summary>
+        /// Настройки приложения
+        /// </summary>
+        private Settings _s = new Settings();
+
+        /// <summary>
         /// Список событий
         /// </summary>
         private List<Event> _events = new List<Event>();
@@ -25,7 +30,6 @@ namespace Calendar {
         private DateTime CurentDate { get => calendar.SelectionStart; }
 
 
-
         // МЕТОДЫ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
@@ -35,8 +39,10 @@ namespace Calendar {
             InitializeComponent();
 
             // Если есть файл то загружаем данные из него
-            if (File.Exists(_path))
+            if (File.Exists(_path) && File.Exists(_s.Path))
                 Deserialize();
+            else
+                BuildEvents();
 
             // Обновляем данные
             bindingSource.DataSource = SelectDayEvents();
@@ -93,19 +99,39 @@ namespace Calendar {
         /// Сериализует коллекцию в файл
         /// </summary>
         private void Serialize() {
-            XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
-            using (FileStream fs = File.Create(_path))
+            
+            // Открываем файловый поток для записи настроек
+            using (FileStream fs = File.Create(_s.Path)) {
+                XmlSerializer xs = new XmlSerializer(typeof(Settings));
+                xs.Serialize(fs, _s);
+            }// using
+
+            // Открываем файловый поток для записи данных
+            using (FileStream fs = File.Create(_path)) {
+                XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
                 xs.Serialize(fs, _events);
+            }// using
+                
         }// Serialize
 
         /// <summary>
         /// Десериализуем коллекцию из файла
         /// </summary>
         private void Deserialize() {
-            _events.Clear();
-            XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
-            using (FileStream fs = File.OpenRead(_path))
+
+            // Загружаем настройи из файла
+            using (FileStream fs = File.OpenRead(_s.Path)) {
+                // Десериализуем настройки приложения
+                XmlSerializer xs = new XmlSerializer(typeof(Settings));
+                _s = (Settings)xs.Deserialize(fs);
+            }// using
+
+            // Загружаем данные из файла
+            using (FileStream fs = File.OpenRead(_path)) {
+                XmlSerializer xs = new XmlSerializer(typeof(List<Event>));
                 _events = (List<Event>)xs.Deserialize(fs);
+            }// using
+
         }// Deserialize
 
         // СОБЫТИЯ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -202,8 +228,19 @@ namespace Calendar {
             Event minEvent = res.Where(it => it.NotifyTime == min).First();
             
             foreach (var it in res.Where(it => it.NotifyTime <= dateTimeNow)) {
+
+                try {
+                    // Отпрвляем сообщения на все адреса
+                    foreach (var addr in _s.GetMails())
+                        it.SendToMail(addr);
+                } catch(Exception ex) {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }// try catch
+
+                // отмечаем как прочитано
                 it.IsReaded = true;
-                it.SendToMail();
+
+                // выводим ообщение пользователю
                 MessageBox.Show(it.Text, "Уведомление пользователя", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 // Обновляем данные
@@ -222,6 +259,15 @@ namespace Calendar {
             // Записываем данные в файл перед закрытием
             Serialize();
         }// MainForm_FormClosing
+
+        /// <summary>
+        /// При нажатии кнопки Настройки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SettingsBtn_Click(object sender, EventArgs e) {
+            new SettingsForm(_s).ShowDialog();
+        }// SettingsBtn_Click
 
 
     }// class MainForm

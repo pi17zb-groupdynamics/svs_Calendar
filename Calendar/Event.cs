@@ -163,9 +163,9 @@ namespace Calendar {
         /// <summary>
         /// Отправка уведомлени на почту
         /// </summary>
-        public async void SendToMail() {
+        public async void SendToMail(string address) {
             MailAddress from = new MailAddress("svs.kalendar@gmail.com", "Календарь");
-            MailAddress to = new MailAddress("postavka8888@gmail.com");
+            MailAddress to = new MailAddress(address);
             MailMessage m = new MailMessage(from, to);
             m.Subject = $"Уведомление от {this.DateTimeEvent.ToString()}";
             m.Body = this.Text;
